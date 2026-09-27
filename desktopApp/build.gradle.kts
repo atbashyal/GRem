@@ -30,6 +30,10 @@ compose.desktop {
             windows {
                 iconFile.set(project.file("../shared/src/commonMain/composeResources/drawable/grem.ico"))
             }
+
+            linux {
+                iconFile.set(project.file("../shared/src/commonMain/composeResources/drawable/img.png"))
+            }
         }
     }
 }
