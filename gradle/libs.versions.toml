@@ -6,6 +6,8 @@ kotlin = "2.4.20"
 kotlinx-coroutines = "1.11.0"
 material3 = "1.12.0-alpha03"
 vlcj = "4.12.1"
+jna = "5.14.0"
+dorkbox-systemtray = "4.4"
 
 [libraries]
 vlcj = { module = "uk.co.caprica:vlcj", version.ref = "vlcj" }
@@ -21,6 +23,9 @@ compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMul
 compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeMultiplatform" }
 compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
 kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
+jnaPlatform = { module = "net.java.dev.jna:jna-platform", version.ref = "jna" }
+systemtray = { module = "com.dorkbox:SystemTray", version.ref = "dorkbox-systemtray" }
 
 [plugins]
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
