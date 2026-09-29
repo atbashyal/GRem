@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogWindow
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.rememberDialogState
+import com.lazyracoon.grem.util.WindowWorkspaceUtils
 import com.lazyracoon.grem.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds
@@ -62,6 +63,12 @@ fun BreakOverlayWindow(viewModel: MainViewModel) {
             focusable = false,
             visible = isWindowVisible,
         ) {
+            val currentWindow = this.window
+            LaunchedEffect(currentWindow) {
+                delay(100.milliseconds)
+                WindowWorkspaceUtils.makeStickyOnAllWorkspaces(currentWindow)
+            }
+
             AnimatedVisibility(
                 visible = isContentVisible,
                 enter = slideInVertically(

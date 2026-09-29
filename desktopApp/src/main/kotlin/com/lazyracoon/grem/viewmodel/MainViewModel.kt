@@ -2,6 +2,7 @@ package com.lazyracoon.grem.viewmodel
 
 import androidx.compose.runtime.*
 import com.lazyracoon.grem.scheduler.BreakScheduler
+import com.lazyracoon.grem.util.AutoStartUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -17,6 +18,11 @@ class MainViewModel(private val scope: CoroutineScope) {
         private set
     
     var settingsVisible by mutableStateOf(false)
+
+    var preferenceVisible by mutableStateOf(false)
+
+    var autoStartEnabled by mutableStateOf(AutoStartUtils.isAutoStartEnabled())
+        private set
     
     var breakInterval by mutableStateOf(15.minutes)
         private set
@@ -57,5 +63,14 @@ class MainViewModel(private val scope: CoroutineScope) {
     fun updateInterval(newInterval: Duration) {
         breakInterval = newInterval
         startScheduler()
+    }
+
+    fun setAutoStart(enabled: Boolean) {
+        val success = AutoStartUtils.setAutoStartEnabled(enabled)
+        if (success) {
+            autoStartEnabled = enabled
+        } else {
+            autoStartEnabled = AutoStartUtils.isAutoStartEnabled()
+        }
     }
 }
